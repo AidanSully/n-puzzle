@@ -17,7 +17,7 @@ if __name__ == "__main__":
     if (parser.error == True):
         print(parser.errorMsg)
         exit()
-    verifier = VerifyPuzzle(puzzle)
+    verifier = VerifyPuzzle(puzzle, size)
     verifier.run()
     if (verifier.error == True):
         print(verifier.errorMsg)
