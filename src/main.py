@@ -12,15 +12,13 @@ if __name__ == "__main__":
     if (len(sys.argv) < 2):
         print_usage()
         exit()
-    parser = Parser(sys.argv[1])
-    puzzle, size = parser.run()
-    if (parser.error == True):
-        print(parser.errorMsg)
+    puzzle = Parser(sys.argv[1])
+    if (puzzle.error == True):
+        print(puzzle.errorMsg)
         exit()
-    verifier = VerifyPuzzle(puzzle, size)
-    verifier.run()
+    verifier = VerifyPuzzle(puzzle.puzzle, puzzle.size)
     if (verifier.error == True):
         print(verifier.errorMsg)
         exit()
-    print(size)
-    print(puzzle)
+    print(puzzle.size)
+    print(puzzle.puzzle)

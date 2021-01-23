@@ -5,6 +5,7 @@ class VerifyPuzzle:
         self.error = False
         self.errorMsg = ''
         self.puzzle1d = []
+        self.run()
 
     def _handleError(self, msg):
         self.error = True
@@ -66,7 +67,6 @@ class VerifyPuzzle:
         '''Function returns True if given N*N - 1 puzzle is solvable'''
 
         invCount = self._getInvCount()
-
         # If grid is odd, return true if inversion count is even
         if self.size % 2 == 1:
             if invCount % 2 != 0:
