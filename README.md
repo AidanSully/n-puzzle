@@ -14,6 +14,7 @@ puzzle is in a file with the following format:<br>
 `4 7 6`<br>
 `3 0 1`<br>
 `2 5 8`<br>
+where 0 is the empty tile
 
 
 ## Todo
