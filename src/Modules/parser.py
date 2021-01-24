@@ -3,7 +3,7 @@ class Parser:
         self.file = file
         self.error = False
         self.errorMsg = ''
-        self.run()
+        self._run()
 
     def _handleError(self, msg):
         self.error = True
@@ -38,7 +38,7 @@ class Parser:
             data.append(row)
         return (data)
 
-    def run(self):
+    def _run(self):
         '''Main parsing function
             calls other parse functions
             returns valid puzzle and size'''

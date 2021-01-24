@@ -5,7 +5,7 @@ class VerifyPuzzle:
         self.error = False
         self.errorMsg = ''
         self.puzzle1d = []
-        self.run()
+        self._run()
 
     def _handleError(self, msg):
         self.error = True
@@ -80,6 +80,6 @@ class VerifyPuzzle:
                 if invCount % 2 != 0:
                     self._handleError('Puzzle is not solvable')
 
-    def run(self):
+    def _run(self):
         self._isValid()
         self._isSolvable()
