@@ -9,7 +9,7 @@ Size of the puzzle is n*n
 ### Usage
 $ python3 main.py [puzzle]
 
-puzzle is in a file with the following format:
+puzzle is in a file with the following format:<br>
 `3`<br>
 `4 7 6`<br>
 `3 0 1`<br>
