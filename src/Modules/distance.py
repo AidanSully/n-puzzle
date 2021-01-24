@@ -55,7 +55,8 @@ class Distance:
             Linear Conflict + Manhattan Distance
         '''
         d = self._manhattan(self.puzzle, self.goal)
-
+        # TODO
+        # Add linear conflict count
         return d
 
     def _hamming(self, puzzle1d, goal1d):
