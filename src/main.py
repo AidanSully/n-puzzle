@@ -26,4 +26,4 @@ if __name__ == "__main__":
     print('Initial state:\n{}\n'.format(state.puzzle))
     goal = Solution(state.size)
     print('Goal state:\n{}\n'.format(goal.puzzle))
-    h = Distance(state.puzzle, goal.puzzle, 'hamming')
+    h = Distance(state.puzzle, goal.puzzle)

@@ -19,25 +19,50 @@ class Distance:
                 puzzle1d.append(n)
         return puzzle1d
 
+    def _getCoords(self, puzzle, value):
+        '''Function returns coordinates of the given value
+            in the given puzzle
+            '''
+        for i in range(len(puzzle)):
+            for j in range(len(puzzle[i])):
+                if value == puzzle[i][j]:
+                    return i, j
+
     def _getDistance(self):
+        '''Controller function for 
+            getting and returning the distance
+        '''
         if (self.heuristic.lower() == 'hamming'):
-            return self._hamming()
+            return self._hamming(self.puzzle1d,  self.goal1d)
         if (self.heuristic.lower() == 'manhattan'):
-            return self._manhattan()
+            return self._manhattan(self.puzzle, self.goal)
         if (self.heuristic.lower() == 'linear'):
             return self._linear()
 
-    def _manhattan(self):
-        pass
+    def _manhattan(self, puzzle, goal):
+        '''Function calculates and returns the 
+            Manhattan distance for each tile summed up'''
+        d = 0
+        for x in range(len(puzzle)):
+            for y in range(len(puzzle[x])):
+                if puzzle[x][y] and puzzle[x][y] != goal[x][y]:
+                    goalX, goalY = self._getCoords(goal, puzzle[x][y])
+                    d += abs((x + y) - (goalX + goalY))
+        return d
 
     def _linear(self):
-        pass
+        '''Function calculates and returns the
+            Linear Conflict + Manhattan Distance
+        '''
+        d = self._manhattan(self.puzzle, self.goal)
 
-    def _hamming(self):
+        return d
+
+    def _hamming(self, puzzle1d, goal1d):
         '''Function calculates and returns the 
             Hamming distance for each tile summed up'''
         d = 0
-        for i in range(len(self.puzzle1d)):
-            if self.puzzle1d[i] != self.goal1d[i]:
+        for i in range(len(puzzle1d)):
+            if puzzle1d and puzzle1d[i] != goal1d[i]:
                 d += 1
         return d
