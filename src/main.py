@@ -2,6 +2,8 @@
 import sys
 from Modules.parser import Parser
 from Modules.verifyPuzzle import VerifyPuzzle
+from Modules.solution import Solution
+from Modules.distance import Distance
 
 
 def print_usage():
@@ -12,13 +14,16 @@ if __name__ == "__main__":
     if (len(sys.argv) < 2):
         print_usage()
         exit()
-    puzzle = Parser(sys.argv[1])
-    if (puzzle.error == True):
-        print(puzzle.errorMsg)
+    state = Parser(sys.argv[1])
+    if (state.error == True):
+        print(state.errorMsg)
         exit()
-    verifier = VerifyPuzzle(puzzle.puzzle, puzzle.size)
+    verifier = VerifyPuzzle(state.puzzle, state.size)
     if (verifier.error == True):
         print(verifier.errorMsg)
         exit()
-    print(puzzle.size)
-    print(puzzle.puzzle)
+    print('size: {}\n'.format(state.size))
+    print('Initial state:\n{}\n'.format(state.puzzle))
+    goal = Solution(state.size)
+    print('Goal state:\n{}\n'.format(goal.puzzle))
+    h = Distance(state.puzzle, goal.puzzle, 'hamming')

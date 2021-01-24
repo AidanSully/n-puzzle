@@ -1,4 +1,8 @@
 class VerifyPuzzle:
+    '''
+        Class checks npuzzle for valid input
+        and if npuzzle is solvable
+    '''
     def __init__(self, puzzle, size):
         self.puzzle = puzzle
         self.size = size

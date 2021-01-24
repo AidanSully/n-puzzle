@@ -1,4 +1,7 @@
 class Parser:
+    '''
+        Class handles reading and parsing files for npuzzle
+    '''
     def __init__(self, file):
         self.file = file
         self.error = False

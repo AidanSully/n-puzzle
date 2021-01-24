@@ -1,4 +1,7 @@
 class Solution:
+    '''
+        Class generates a solved puzzle
+    '''
     def __init__(self, size):
         self.size = size
         self.puzzle = [[0 for _ in range(self.size)]
@@ -6,6 +9,8 @@ class Solution:
         self._generate(self.size)
 
     def _generate(self, n):
+        '''Function generates and returns a
+            solved snail state puzzle'''
         inc = 0
         for depth in range(0, int((n + 1) / 2)):
             r = depth
@@ -33,5 +38,6 @@ class Solution:
                 row[row.index(n * n)] = 0
 
 
-if __name__ == '__main__':
-    goal = Solution(3)
+# if __name__ == '__main__':
+#     goal = Solution(4)
+#     print(goal.puzzle)
