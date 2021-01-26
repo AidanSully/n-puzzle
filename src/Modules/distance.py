@@ -10,7 +10,6 @@ class Distance:
         self.puzzle1d = self._get1d(self.puzzle)
         self.goal1d = self._get1d(self.goal)
         self.d = self._getDistance()
-        print(self.d)
 
     def _get1d(self, puzzle):
         puzzle1d = []
@@ -49,6 +48,9 @@ class Distance:
                     goalX, goalY = self._getCoords(goal, puzzle[x][y])
                     d += abs((x + y) - (goalX + goalY))
         return d
+
+    def _countConflicts(self):
+        pass
 
     def _linear(self):
         '''Function calculates and returns the

@@ -2,6 +2,7 @@ class Parser:
     '''
         Class handles reading and parsing files for npuzzle
     '''
+
     def __init__(self, file):
         self.file = file
         self.error = False
@@ -48,3 +49,73 @@ class Parser:
         self.content = self._read_file()
         self.puzzle = self._convert()
         self.size = self.puzzle[0][0]
+
+    def _getCoords(self, puzzle, value):
+        '''Function returns coordinates of the given value
+            in the given puzzle
+            '''
+        for i in range(len(puzzle)):
+            for j in range(len(puzzle[i])):
+                if value == puzzle[i][j]:
+                    return i, j
+
+    def _checkZero(self, puzzle, x, y, direction):
+        if direction == 'R':
+            if y + 1 > self.size or puzzle[x][y + 1]:
+                return False
+        if direction == 'L':
+            if y - 1 < 0 or puzzle[x][y - 1]:
+                return False
+        if direction == 'D':
+            if x + 1 > self.size or puzzle[x + 1][y]:
+                return False
+        if direction == 'U':
+            if x - 1 < 0 or puzzle[x - 1][y]:
+                return False
+        return True
+
+    def _moveRight(self, value):
+        x, y = self._getCoords(self.puzzle, value)
+        if self._checkZero(self.puzzle, x, y, 'R') == False:
+            self._handleError('Invalid move')
+            return
+        temp = self.puzzle[x][y + 1]
+        self.puzzle[x][y + 1] = self.puzzle[x][y]
+        self.puzzle[x][y] = temp
+    
+    def _moveLeft(self, value):
+        x, y = self._getCoords(self.puzzle, value)
+        if self._checkZero(self.puzzle, x, y, 'L') == False:
+            self._handleError('Invalid move')
+            return
+        temp = self.puzzle[x][y - 1]
+        self.puzzle[x][y - 1] = self.puzzle[x][y]
+        self.puzzle[x][y] = temp
+    
+    def _moveDown(self, value):
+        x, y = self._getCoords(self.puzzle, value)
+        if self._checkZero(self.puzzle, x, y, 'D') == False:
+            self._handleError('Invalid move')
+            return
+        temp = self.puzzle[x + 1][y]
+        self.puzzle[x + 1][y] = self.puzzle[x][y]
+        self.puzzle[x][y] = temp
+    
+    def _moveUp(self, value):
+        x, y = self._getCoords(self.puzzle, value)
+        if self._checkZero(self.puzzle, x, y, 'U') == False:
+            self._handleError('Invalid move')
+            return
+        temp = self.puzzle[x - 1][y]
+        self.puzzle[x - 1][y] = self.puzzle[x][y]
+        self.puzzle[x][y] = temp
+
+    def move(self, value, direction):
+        if direction == 'R':
+            self._moveRight(value)
+        if direction == 'L':
+            self._moveLeft(value)
+        if direction == 'D':
+            self._moveDown(value)
+        if direction == 'U':
+            self._moveUp(value)

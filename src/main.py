@@ -23,7 +23,42 @@ if __name__ == "__main__":
         print(verifier.errorMsg)
         exit()
     print('size: {}\n'.format(state.size))
-    print('Initial state:\n{}\n'.format(state.puzzle))
+    print('Initial state:\n')
+    for row in state.puzzle:
+        print(row)
+    print()
     goal = Solution(state.size)
-    print('Goal state:\n{}\n'.format(goal.puzzle))
+    print('Goal state:\n')
+    for row in goal.puzzle:
+        print(row)
+    print()
     h = Distance(state.puzzle, goal.puzzle)
+    print('Heuristic distance: {}'.format(h.d))
+    state.move(5, 'R')
+    if (state.error == True):
+        print(state.errorMsg)
+        exit()
+    for row in state.puzzle:
+        print(row)
+    print()
+    state.move(5, 'L')
+    if (state.error == True):
+        print(state.errorMsg)
+        exit()
+    for row in state.puzzle:
+        print(row)
+    print()
+    state.move(2, 'D')
+    if (state.error == True):
+        print(state.errorMsg)
+        exit()
+    for row in state.puzzle:
+        print(row)
+    print()
+    state.move(2, 'U')
+    if (state.error == True):
+        print(state.errorMsg)
+        exit()
+    for row in state.puzzle:
+        print(row)
+    print()
