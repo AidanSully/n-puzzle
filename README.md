@@ -19,7 +19,7 @@ where 0 is the empty tile
 
 ## Todo
 - Implement hueristic functions which include [resource](https://algorithmsinsight.wordpress.com/graph-theory-2/a-star-in-general/implementing-a-star-to-solve-n-puzzle/):
-    - Hamming distance/Misplaced tiles (Slowest)
-    - Manhattan Distance/Taxicab geometry (Slow for higher values)
+    - ~~Hamming distance/Misplaced tiles (Slowest)~~
+    - ~~Manhattan Distance/Taxicab geometry (Slow for higher values)~~
     - Linear Conflict + Manhattan Distance/Taxicab geometry
 - Implement A* algorithm
