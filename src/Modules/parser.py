@@ -7,6 +7,7 @@ class Parser:
         self.file = file
         self.error = False
         self.errorMsg = ''
+        self.moveCount = 0
         self._run()
 
     def _handleError(self, msg):
@@ -82,6 +83,7 @@ class Parser:
         temp = self.puzzle[x][y + 1]
         self.puzzle[x][y + 1] = self.puzzle[x][y]
         self.puzzle[x][y] = temp
+        self.moveCount += 1
     
     def _moveLeft(self, value):
         x, y = self._getCoords(self.puzzle, value)
@@ -91,6 +93,7 @@ class Parser:
         temp = self.puzzle[x][y - 1]
         self.puzzle[x][y - 1] = self.puzzle[x][y]
         self.puzzle[x][y] = temp
+        self.moveCount += 1
     
     def _moveDown(self, value):
         x, y = self._getCoords(self.puzzle, value)
@@ -100,6 +103,7 @@ class Parser:
         temp = self.puzzle[x + 1][y]
         self.puzzle[x + 1][y] = self.puzzle[x][y]
         self.puzzle[x][y] = temp
+        self.moveCount += 1
     
     def _moveUp(self, value):
         x, y = self._getCoords(self.puzzle, value)
@@ -109,6 +113,7 @@ class Parser:
         temp = self.puzzle[x - 1][y]
         self.puzzle[x - 1][y] = self.puzzle[x][y]
         self.puzzle[x][y] = temp
+        self.moveCount += 1
 
     def move(self, value, direction):
         if direction == 'R':
