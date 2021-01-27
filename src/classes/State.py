@@ -84,3 +84,5 @@ class State:
         if direction == 'U':
             self._moveUp()
         self.h = Distance(self.puzzle, self.goal.puzzle).d
+        self.g += 1
+        self.f = self.g + self.h

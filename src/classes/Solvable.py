@@ -1,4 +1,8 @@
-class SolvablePuzzle:
+class Solvable:
+    '''
+        Class checks if given npuzzle is solvable
+    '''
+
     def __init__(self, puzzle, puzzle1d, size):
         self.puzzle = puzzle
         self.puzzle1d = puzzle1d

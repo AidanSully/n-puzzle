@@ -1,8 +1,8 @@
-from .ValidPuzzle import ValidPuzzle
-from .SolvablePuzzle import SolvablePuzzle
+from .Valid import Valid
+from .Solvable import Solvable
 
 
-class ReadPuzzle:
+class Read:
     '''
         Class handles reading puzzle input
     '''
@@ -51,6 +51,6 @@ class ReadPuzzle:
         '''
         puzzle = self._convert(self._readFile())
         size = puzzle[0][0]
-        valid = ValidPuzzle(puzzle, size)
-        SolvablePuzzle(puzzle, valid.puzzle1d, size)
+        valid = Valid(puzzle, size)
+        Solvable(puzzle, valid.puzzle1d, size)
         return (size, puzzle)

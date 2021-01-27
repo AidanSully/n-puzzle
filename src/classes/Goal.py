@@ -2,6 +2,7 @@ class Goal:
     '''
         Class generates a solved puzzle
     '''
+
     def __init__(self, size):
         self.size = size
         self.puzzle = [[0 for _ in range(self.size)]

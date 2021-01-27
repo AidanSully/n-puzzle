@@ -1,4 +1,4 @@
-class ValidPuzzle:
+class Valid:
     '''
         Class checks npuzzle for valid input
     '''
