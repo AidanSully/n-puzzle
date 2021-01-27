@@ -19,16 +19,18 @@ class Distance:
         return puzzle1d
 
     def _getCoords(self, puzzle, value):
-        '''Function returns coordinates of the given value
+        '''
+            Function returns coordinates of the given value
             in the given puzzle
-            '''
+        '''
         for i in range(len(puzzle)):
             for j in range(len(puzzle[i])):
                 if value == puzzle[i][j]:
                     return i, j
 
     def _getDistance(self):
-        '''Controller function for 
+        '''
+            Controller function for 
             getting and returning the distance
         '''
         if (self.heuristic.lower() == 'hamming'):
@@ -39,8 +41,10 @@ class Distance:
             return self._linear()
 
     def _manhattan(self, puzzle, goal):
-        '''Function calculates and returns the 
-            Manhattan distance for each tile summed up'''
+        '''
+            Function calculates and returns the 
+            Manhattan distance for each tile summed up
+        '''
         d = 0
         for x in range(len(puzzle)):
             for y in range(len(puzzle[x])):
@@ -53,7 +57,8 @@ class Distance:
         pass
 
     def _linear(self):
-        '''Function calculates and returns the
+        '''
+            Function calculates and returns the
             Linear Conflict + Manhattan Distance
         '''
         d = self._manhattan(self.puzzle, self.goal)
@@ -62,8 +67,10 @@ class Distance:
         return d
 
     def _hamming(self, puzzle1d, goal1d):
-        '''Function calculates and returns the 
-            Hamming distance for each tile summed up'''
+        '''
+            Function calculates and returns the 
+            Hamming distance for each tile summed up
+        '''
         d = 0
         for i in range(len(puzzle1d)):
             if puzzle1d and puzzle1d[i] != goal1d[i]:

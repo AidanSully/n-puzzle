@@ -1,4 +1,4 @@
-class Solution:
+class Goal:
     '''
         Class generates a solved puzzle
     '''
@@ -9,8 +9,10 @@ class Solution:
         self._generate(self.size)
 
     def _generate(self, n):
-        '''Function generates and returns a
-            solved snail state puzzle'''
+        '''
+            Function generates and returns a
+            solved snail state puzzle
+        '''
         inc = 0
         for depth in range(0, int((n + 1) / 2)):
             r = depth
