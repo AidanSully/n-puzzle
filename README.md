@@ -24,4 +24,18 @@ optional arguments:
   -s {g,u,greedy,uniform}, --search {g,u,greedy,uniform}
 ```
 
-### Hueristics
+### Heuristics
+#### Manhattan distance
+```
+The Manhattan distance between two points x = (x1, x2, …, xn) and y = (y1, y2, …, yn) in n-dimensional space is the sum of the distances in each dimension.
+```
+#### Hamming distance
+```
+Hamming distance is a metric for comparing two binary data strings. In our case it would be current state compared to solved state. h = number of misplaced tiles
+```
+#### Euclidean distance
+```
+The Euclidean distance between two points in either the plane or 3-dimensional space measures the length of a segment connecting the two points. It is the most obvious way of representing distance between two points.
+
+The Pythagorean Theorem can be used to calculate the distance between two points.
+```
