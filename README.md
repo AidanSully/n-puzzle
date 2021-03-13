@@ -19,5 +19,5 @@ optional arguments:
   -h, --help            show this help message and exit
   -d HEURISTIC, --heuristic HEURISTIC
                         manhattan (default), hamming, euclidean
-  -s {g,u,greedy,uniform}, --search {g,u,greedy,uniform}```
+  -s {g,u,greedy,uniform}, --search {g,u,greedy,uniform}
 
