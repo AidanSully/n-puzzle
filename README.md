@@ -4,7 +4,9 @@ ________________________
 
 ### A Python program that solves an n-puzzle
 See: https://en.wikipedia.org/wiki/15_puzzle
+
 Size of the puzzle is n*n
+
 ![puzzle example](resources/npuzzle.PNG)
 
 ### Usage
