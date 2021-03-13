@@ -7,7 +7,7 @@ See: https://en.wikipedia.org/wiki/15_puzzle
 
 Size of the puzzle is n*n
 
-![puzzle example](resources/npuzzleimage.PNG)
+![puzzle example](resources/npuzzle.PNG)
 
 ### Usage
 ```usage: npuzzle [-h] [-d HEURISTIC] [-s {g,u,greedy,uniform}] <inputfile>
