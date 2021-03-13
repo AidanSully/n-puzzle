@@ -23,3 +23,5 @@ optional arguments:
                         manhattan (default), hamming, euclidean
   -s {g,u,greedy,uniform}, --search {g,u,greedy,uniform}
 
+
+### Hueristics
