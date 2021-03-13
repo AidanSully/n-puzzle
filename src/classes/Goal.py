@@ -39,8 +39,3 @@ class Goal:
         for row in self.puzzle:
             if (n * n) in row:
                 row[row.index(n * n)] = 0
-
-
-# if __name__ == '__main__':
-#     goal = Solution(4)
-#     print(goal.puzzle)

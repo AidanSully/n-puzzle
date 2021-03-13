@@ -1,15 +1,18 @@
+import math
+
+
 class Distance:
     '''
         Class returns the distance using different heuristics
     '''
 
-    def __init__(self, puzzle, goal, heuristic='manhattan'):
+    def __init__(self, puzzle, goal, heuristic):
         self.heuristic = heuristic
         self.puzzle = puzzle
         self.goal = goal
         self.puzzle1d = self._get1d(self.puzzle)
         self.goal1d = self._get1d(self.goal)
-        self.d = self._getDistance()
+        self.d = int(self._getDistance())
 
     def _get1d(self, puzzle):
         puzzle1d = []
@@ -37,39 +40,42 @@ class Distance:
             return self._hamming(self.puzzle1d,  self.goal1d)
         if (self.heuristic.lower() == 'manhattan'):
             return self._manhattan(self.puzzle, self.goal)
-        if (self.heuristic.lower() == 'linear'):
-            return self._linear()
+        if (self.heuristic.lower() == 'euclidean'):
+            return self._euclidean(self.puzzle, self.goal)
 
     def _manhattan(self, puzzle, goal):
         '''
             Function calculates and returns the 
             Manhattan distance for each tile summed up
+            dx + dy
         '''
         d = 0
         for x in range(len(puzzle)):
             for y in range(len(puzzle[x])):
                 if puzzle[x][y] and puzzle[x][y] != goal[x][y]:
                     goalX, goalY = self._getCoords(goal, puzzle[x][y])
-                    d += abs((x + y) - (goalX + goalY))
+                    d += abs(x - goalX) + abs(y - goalY)
         return d
 
-    def _countConflicts(self):
-        pass
-
-    def _linear(self):
+    def _euclidean(self, puzzle, goal):
         '''
             Function calculates and returns the
-            Linear Conflict + Manhattan Distance
+            Euclidean distance for each tile summed up
+            a = sqrt(dx^2 + dy^2)
         '''
-        d = self._manhattan(self.puzzle, self.goal)
-        # TODO
-        # Add linear conflict count
+        d = 0
+        for x in range(len(puzzle)):
+            for y in range(len(puzzle[x])):
+                if puzzle[x][y] and puzzle[x][y] != goal[x][y]:
+                    goalX, goalY = self._getCoords(goal, puzzle[x][y])
+                    d += math.sqrt(abs(x - goalX) * 2) + (abs(y - goalY) * 2)
         return d
 
     def _hamming(self, puzzle1d, goal1d):
         '''
             Function calculates and returns the 
             Hamming distance for each tile summed up
+            Number of misplaced tiles
         '''
         d = 0
         for i in range(len(puzzle1d)):

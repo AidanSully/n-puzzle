@@ -34,10 +34,10 @@ class Read:
         data = []
         for line in content:
             row = []
-            for n in line.split(' '):
+            for n in line.split():
                 if not n.isdigit():
                     if not n.isdigit():
-                        raise Exception(
+                        raise TypeError(
                             'Error: Invalid input, must all be numeric values\n')
                 row.append(int(n))
             data.append(row)
@@ -51,6 +51,6 @@ class Read:
         '''
         puzzle = self._convert(self._readFile())
         size = puzzle[0][0]
-        valid = Valid(puzzle, size)
-        Solvable(puzzle, valid.puzzle1d, size)
+        Valid(puzzle, size)
+        Solvable(puzzle, size)
         return (size, puzzle)

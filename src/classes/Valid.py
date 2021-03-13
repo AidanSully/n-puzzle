@@ -6,8 +6,14 @@ class Valid:
     def __init__(self, puzzle, size):
         self.puzzle = puzzle
         self.size = size
-        self.puzzle1d = []
         self._run()
+
+    def _convert(self, puzzle):
+        puzzleList = []
+        for row in puzzle:
+            for n in row:
+                puzzleList.append(n)
+        return puzzleList
 
     def _checkNumbers(self, size):
         '''
@@ -16,10 +22,8 @@ class Valid:
         '''
 
         valid_numbers = [n for n in range(size**2)]
-        for row in self.puzzle:
-            for n in row:
-                self.puzzle1d.append(n)
-        diff = [n for n in valid_numbers if n not in self.puzzle1d]
+        puzzle1d = self._convert(self.puzzle)
+        diff = [n for n in valid_numbers if n not in puzzle1d]
         if len(diff) != 0:
             raise Exception('Invalid input, puzzle tile numbers are invalid')
 
