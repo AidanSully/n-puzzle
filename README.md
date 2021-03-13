@@ -8,7 +8,7 @@ Size of the puzzle is n*n
 ![](resources/npuzzle.PNG)
 
 ### Usage
-usage: npuzzle [-h] [-d HEURISTIC] [-s {g,u,greedy,uniform}] <inputfile>
+```usage: npuzzle [-h] [-d HEURISTIC] [-s {g,u,greedy,uniform}] <inputfile>
 
 Solve N-puzzles
 
@@ -19,5 +19,5 @@ optional arguments:
   -h, --help            show this help message and exit
   -d HEURISTIC, --heuristic HEURISTIC
                         manhattan (default), hamming, euclidean
-  -s {g,u,greedy,uniform}, --search {g,u,greedy,uniform}
+  -s {g,u,greedy,uniform}, --search {g,u,greedy,uniform}```
 
