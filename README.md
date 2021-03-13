@@ -5,7 +5,7 @@ ________________________
 ### A Python program that solves an n-puzzle
 See: https://en.wikipedia.org/wiki/15_puzzle
 Size of the puzzle is n*n
-![](resources/npuzzle.PNG)
+![puzzle example](resources/npuzzle.PNG)
 
 ### Usage
 ```usage: npuzzle [-h] [-d HEURISTIC] [-s {g,u,greedy,uniform}] <inputfile>
