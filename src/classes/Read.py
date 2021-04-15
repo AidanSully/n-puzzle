@@ -38,7 +38,7 @@ class Read:
                 if not n.isdigit():
                     if not n.isdigit():
                         raise TypeError(
-                            'Error: Invalid input, must all be numeric values\n')
+                            'Error: Invalid input, must all be numeric values')
                 row.append(int(n))
             data.append(row)
         return (data)

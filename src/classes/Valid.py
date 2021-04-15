@@ -25,7 +25,7 @@ class Valid:
         puzzle1d = self._convert(self.puzzle)
         diff = [n for n in valid_numbers if n not in puzzle1d]
         if len(diff) != 0:
-            raise Exception('Invalid input, puzzle tile numbers are invalid')
+            raise Exception('Error: Invalid input, puzzle tile numbers are invalid')
 
     def _isValid(self):
         '''
@@ -34,17 +34,17 @@ class Valid:
 
         if len(self.puzzle[0]) != 1:
             raise Exception(
-                'Invalid input, first line should only contain size')
+                'Error: Invalid input, first line should only contain size')
         self.size = self.puzzle.pop(0)[0]
         if self.size < 2:
-            raise Exception('Invalid input, size cant be < 2')
+            raise Exception('Error Invalid input, size cant be < 2')
         if len(self.puzzle) != self.size:
             raise Exception(
-                'Invalid input, given size does not match actual size')
+                'Error: Invalid input, given size does not match actual size')
         for row in self.puzzle:
             if len(row) != self.size:
                 raise Exception(
-                    'Invalid input, given size does not match actual size')
+                    'Error: Invalid input, given size does not match actual size')
         self._checkNumbers(self.size)
 
     def _run(self):

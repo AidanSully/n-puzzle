@@ -82,15 +82,19 @@ if __name__ == "__main__":
     parser.add_argument(
         '-s', '--search', choices=['g', 'u', 'greedy', 'uniform'], default=False)
     args = parser.parse_args()
-    if checkHeuristic(args.heuristic):
-        heuristic = args.heuristic
-    else:
-        heuristic = 'manhattan'
-    data = Read(args.file)
-    goal = Goal(data.size)
-    state = State(data.puzzle, data.size, goal, heuristic)
-    solution = solver(state.puzzle, state, data.size, goal, heuristic, args.search)
-    printSolution(solution, state)
-    print(f'Solved with {heuristic} distance heuristic')
-    print(f'Time complexity: {TIME}\tSpace complexity: {SPACE}')
-    print(f'Solved in {solution.g} moves')
+    try:
+        if checkHeuristic(args.heuristic):
+            heuristic = args.heuristic
+        else:
+            heuristic = 'manhattan'
+        data = Read(args.file)
+        goal = Goal(data.size)
+        state = State(data.puzzle, data.size, goal, heuristic)
+        solution = solver(state.puzzle, state, data.size, goal, heuristic, args.search)
+        printSolution(solution, state)
+        print(f'Solved with {heuristic} distance heuristic')
+        print(f'Time complexity: {TIME}\tSpace complexity: {SPACE}')
+        print(f'Solved in {solution.g} moves')
+    except Exception as error:
+        error_string = str(error)
+        print(error_string)

@@ -38,7 +38,6 @@ class Solvable:
         '''
             Function returns True if given N*N - 1 puzzle is solvable
         '''
-
         goal = Goal(self.size)
         puzzle1d = self._convert(self.puzzle)
         goal1d = self._convert(goal.puzzle)
